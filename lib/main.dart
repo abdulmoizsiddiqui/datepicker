@@ -1,3 +1,4 @@
+import 'package:datepicker/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
       ),
-      home: const MyHomePage(title: 'Home Page'),
+      home: SplashScreen(),
     );
   }
 }
