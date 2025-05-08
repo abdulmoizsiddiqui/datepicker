@@ -43,16 +43,35 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Text('Please select the date:'),
             ElevatedButton(
-              onPressed: () {
-                var datePicked = showDatePicker(
+              onPressed: () async {
+                DateTime? datePicked = await showDatePicker(
                   context: context,
                   firstDate: DateTime(2025, 6),
                   lastDate: DateTime(2030, 2),
-
-                  print('The date picked is $datePicked'),
                 );
+
+                if (datePicked != null) {
+                  print(
+                    'The date picked is ${datePicked?.year}:${datePicked.month}:${datePicked.day}',
+                  );
+                }
               },
               child: Text('Choose Date', style: TextStyle(fontSize: 20)),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                TimeOfDay? timePicked = await showTimePicker(
+                  context: context,
+                  initialTime: TimeOfDay.now(),
+                );
+
+                if (timePicked != null) {
+                  print(
+                    'The selected time is: ${timePicked.hour}:${timePicked.minute}',
+                  );
+                }
+              },
+              child: Text('Choose Time'),
             ),
           ],
         ),
